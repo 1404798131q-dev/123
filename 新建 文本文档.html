@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="description" content="票房之外，国漫IP的增量在哪里？从谷子经济、衍生品变现、主题乐园与出海能力，拆解中国动漫产业的产业链与商业化机会。"/>
+  <title>票房之后：国漫IP的产业链与变现真相（数据新闻）</title>
+
+  <style>
+    /* ==================== 设计变量 ==================== */
+    :root{
+      --primary-red:#b91c1c;
+      --primary-blue:#1e40af;
+      --text-dark:#0f172a;
+      --text-main:#334155;
+      --text-light:#64748b;
+      --bg-gray:#f8fafc;
+      --border-light:#e2e8f0;
+      --accent-green:#059669;
+      --accent-orange:#f59e0b;
+      --shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+      --radius: 12px;
+    }
+
+    /* ==================== 全局重置 ==================== */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      background:var(--bg-gray);
+      color:var(--text-main);
+      line-height:1.85;
+      font-size:17px;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;}
+    img{max-width:100%;display:block;}
+    .container{
+      max-width:780px;
+      margin:0 auto;
+      background:#fff;
+      padding:24px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    /* ==================== 顶部目录导航 ==================== */
+    .nav-toc{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:#fff;
+      border-bottom:1px solid var(--border-light);
+      padding:10px 0;
+      margin-bottom:22px;
+      overflow-x:auto;
+      white-space:nowrap;
+      font-size:14px;
+    }
+    .nav-toc a{
+      display:inline-block;
+      margin-right:10px;
+      padding:6px 10px;
+      border-radius:8px;
+      text-decoration:none;
+      color:var(--text-light);
+      transition: all .2s ease;
+      border:1px solid transparent;
+    }
+    .nav-toc a:hover{
+      color:var(--primary-blue);
+      background:var(--bg-gray);
+      border-color:var(--border-light);
+    }
+
+    /* ==================== 封面 ==================== */
+    .cover-section{
+      padding: 18px 0 30px;
+      border-bottom:1px solid var(--border-light);
+      margin-bottom:30px;
+    }
+    .cover-tag{
+      display:inline-block;
+      font-size:13px;
+      color:var(--primary-red);
+      border:1px solid var(--primary-red);
+      padding:4px 10px;
+      border-radius:999px;
+      font-weight:600;
+      margin-bottom:14px;
+    }
+    .main-title{
+      font-family: Georgia,"Source Han Serif SC",serif;
+      font-size:34px;
+      font-weight:900;
+      line-height:1.25;
+      color:var(--text-dark);
+      margin-bottom:12px;
+    }
+    .main-title span{color:var(--primary-red);}
+    .subtitle{
+      font-size:20px;
+      color:var(--text-light);
+      line-height:1.55;
+      margin-bottom:18px;
+    }
+    .editor-note{
+      background:var(--bg-gray);
+      border-left:4px solid var(--primary-red);
+      padding:18px 18px;
+      border-radius:0 10px 10px 0;
+      margin:18px 0 12px;
+      color:var(--text-main);
+      font-size:16px;
+      line-height:1.75;
+    }
+    .editor-note strong{color:var(--primary-red);}
+    .meta-info{
+      color:var(--text-light);
+      font-size:13px;
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    /* ==================== 信息块（数据高亮） ==================== */
+    .data-highlight-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      margin:18px 0 10px;
+    }
+    .data-card{
+      background:#fff;
+      border:1px solid var(--border-light);
+      border-left:4px solid var(--primary-blue);
+      border-radius:12px;
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .data-card .number{
+      font-size:30px;
+      font-weight:900;
+      color:var(--primary-blue);
+      line-height:1.1;
+      margin-bottom:6px;
+    }
+    .data-card .label{
+      font-size:14px;
+      color:var(--text-light);
+      line-height:1.45;
+    }
+
+    /* ==================== 章节系统 ==================== */
+    .chapter-section{margin:46px 0 28px;}
+    .chapter-header{
+      padding: 14px 0;
+      border-bottom:2px solid var(--primary-blue);
+      margin-bottom:18px;
+      display:flex;
+      align-items:flex-end;
+      gap:12px;
+    }
+    .chapter-number{
+      font-size:44px;
+      font-weight:900;
+      color:#e5e7eb;
+      line-height:1;
+      flex:0 0 auto;
+    }
+    .chapter-title{
+      font-size:24px;
+      font-weight:900;
+      color:var(--primary-blue);
+      line-height:1.2;
+      margin-bottom:4px;
+    }
+    .chapter-preview{
+      background:#f0f7ff;
+      padding:14px 14px;
+      border-left:4px solid #3b82f6;
+      border-radius:0 10px 10px 0;
+      margin:16px 0 6px;
+      color:var(--primary-blue);
+      font-size:15px;
+      line-height:1.65;
+    }
+
+    /* ==================== 正文样式 ==================== */
+    .paragraph{
+      margin:14px 0;
+      text-align:justify;
+      color:var(--text-main);
+    }
+    .paragraph strong{color:var(--primary-red); font-weight:700;}
+    .pull-quote{
+      margin:22px 0;
+      padding:14px 0 14px 18px;
+      border-left:4px solid var(--primary-red);
+      background:#fff;
+      box-shadow:var(--shadow);
+      border-radius:0 10px 10px 0;
+      font-family: Georgia,serif;
+      font-size:20px;
+      font-weight:800;
+      color:var(--text-dark);
+      line-height:1.55;
+    }
+
+    /* ==================== 图表容器（SVG） ==================== */
+    .chart-container{
+      background:#fff;
+      border:1px solid var(--border-light);
+      border-radius:var(--radius);
+      padding:22px;
+      margin:22px 0;
+      box-shadow:var(--shadow);
+    }
+    .chart-title{
+      text-align:center;
+      font-size:18px;
+      font-weight:800;
+      color:var(--text-dark);
+      margin-bottom:6px;
+    }
+    .chart-subtitle{
+      text-align:center;
+      font-size:13px;
+      color:var(--text-light);
+      margin-bottom:16px;
+    }
+    .chart-svg{width:100%;height:auto;display:block;}
+    .chart-note{
+      text-align:center;
+      font-size:13px;
+      color:var(--text-light);
+      margin-top:10px;
+      line-height:1.55;
+    }
+    .chart-source{
+      text-align:right;
+      font-size:12px;
+      color:#94a3b8;
+      margin-top:10px;
+    }
+
+    /* ==================== 洞察 / 案例 / 策略卡片 ==================== */
+    .insight-box{
+      background:#fff9f9;
+      border:1px solid #fecaca;
+      border-radius:12px;
+      padding:16px;
+      margin:18px 0;
+    }
+    .insight-label{
+      font-size:13px;
+      color:var(--primary-red);
+      font-weight:800;
+      margin-bottom:8px;
+      letter-spacing:.2px;
+    }
+
+    .case-box{
+      background:#f9f9f9;
+      border-left:4px solid #374151;
+      border-radius:12px;
+      padding:16px;
+      margin:18px 0;
+    }
+    .case-title{
+      font-size:16px;
+      font-weight:900;
+      color:#374151;
+      margin-bottom:10px;
+    }
+
+    details.case-details{
+      background:var(--bg-gray);
+      border:1px solid var(--border-light);
+      border-radius:12px;
+      padding:14px;
+      margin:16px 0;
+    }
+    summary.case-summary{
+      cursor:pointer;
+      font-weight:800;
+      color:var(--primary-blue);
+      outline:none;
+    }
+
+    .strategy-box{
+      background: linear-gradient(to right bottom, #ffffff, #f0f9ff);
+      border:1px solid #bae6fd;
+      border-radius:12px;
+      padding:16px;
+      margin:14px 0;
+    }
+    .strategy-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#0284c7;
+      font-weight:900;
+      font-size:18px;
+      margin-bottom:10px;
+    }
+    .strategy-title span{
+      width:24px;height:24px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:#0284c7;color:#fff;
+      font-size:14px;
+      flex:0 0 auto;
+    }
+
+    /* ==================== 对比表格 ==================== */
+    .compare-table{
+      width:100%;
+      border-collapse:collapse;
+      margin:16px 0 6px;
+      overflow:hidden;
+      border-radius:12px;
+      border:1px solid var(--border-light);
+    }
+    .compare-table th,
+    .compare-table td{
+      padding:12px 12px;
+      border-bottom:1px solid var(--border-light);
+      vertical-align:top;
+      font-size:14px;
+      line-height:1.6;
+    }
+    .compare-table th{
+      background:#f1f5f9;
+      color:var(--text-dark);
+      font-weight:900;
+      text-align:left;
+    }
+    .badge{
+      display:inline-block;
+      padding:2px 8px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:800;
+      border:1px solid var(--border-light);
+      color:var(--text-light);
+      background:#fff;
+      margin-left:6px;
+    }
+
+    /* ==================== 结语 ==================== */
+    .final-section{
+      margin-top:54px;
+      padding-top:34px;
+      border-top:2px solid var(--primary-blue);
+    }
+    .final-title{
+      font-family:Georgia,serif;
+      font-size:24px;
+      font-weight:900;
+      color:var(--text-dark);
+      margin-bottom:14px;
+    }
+    .final-paragraph{
+      font-size:18px;
+      color:var(--text-main);
+      margin:12px 0;
+      line-height:1.85;
+    }
+    .final-paragraph strong{color:var(--primary-red);}
+    .footer{
+      margin-top:36px;
+      padding-top:22px;
+      border-top:1px solid var(--border-light);
+      text-align:center;
+      color:var(--text-light);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    /* ==================== 响应式 ==================== */
+    @media (max-width: 520px){
+      body{font-size:16px;}
+      .container{padding:16px;}
+      .main-title{font-size:28px;}
+      .subtitle{font-size:18px;}
+      .chapter-title{font-size:20px;}
+      .data-highlight-grid{grid-template-columns:1fr;}
+      .chart-container{padding:16px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- 目录导航 -->
+    <nav class="nav-toc" aria-label="文章目录">
+      <a href="#chapter01">发展历程</a>
+      <a href="#chapter02">产业规模</a>
+      <a href="#chapter03">票房 vs 衍生品</a>
+      <a href="#chapter04">中日美对比</a>
+      <a href="#chapter05">主题乐园</a>
+      <a href="#chapter06">出海能力</a>
+      <a href="#conclusion">破局策略</a>
+    </nav>
+
+    <!-- 封面 -->
+    <header class="cover-section">
+      <div class="cover-tag">Data Story · 动漫产业 / IP商业化</div>
+      <h1 class="main-title">票房之后：<span>国漫IP</span>的产业链与变现真相</h1>
+      <p class="subtitle">
+        国产动画在银幕端的存在感越来越强，但真正决定“产业天花板”的，往往不在票房——而在
+        <strong>衍生品、授权体系、线下体验与海外发行</strong>。
+      </p>
+
+      <div class="editor-note">
+        <strong>编者按</strong><br><br>
+        一部动画电影的成功，常常被简化为“票房爆了”。但在更成熟的动漫产业里，
+        票房只是一段旅程的起点：IP 的生命力来自持续运营，现金流来自多元变现。<br><br>
+        本文基于你提供的 PDF 要点进行整理（部分数字为报告口径，建议上线前二次核对），尝试回答一个更现实的问题：<br>
+        <strong>当国漫作品越来越多，为什么“IP 变现”仍然是短板？</strong>
+      </div>
+
+      <div class="data-highlight-grid" aria-label="关键数据速览">
+        <div class="data-card">
+          <div class="number">1401 亿元</div>
+          <div class="label">2023 年中国「谷子经济」（动漫衍生品）市场规模（报告口径）</div>
+        </div>
+        <div class="data-card">
+          <div class="number">1183 亿美元</div>
+          <div class="label">2016 年全球娱乐/角色形象衍生品市场规模（报告口径）</div>
+        </div>
+        <div class="data-card">
+          <div class="number">386 亿美元</div>
+          <div class="label">2016 年全球电影票房规模（报告口径，用于与衍生品对比）</div>
+        </div>
+        <div class="data-card">
+          <div class="number">3.06 倍</div>
+          <div class="label">娱乐/角色形象衍生品规模约为电影票房的倍数（1183 vs 386）</div>
+        </div>
+      </div>
+
+      <div class="meta-info">
+        <span>阅读时间：约 10–12 分钟</span>
+        <span>主题：国漫 / IP衍生 / 文旅体验</span>
+        <span>整理：基于你上传的 PDF 文本要点</span>
+      </div>
+    </header>
+
+    <!-- 第一章：发展历程 -->
+    <section class="chapter-section" id="chapter01">
+      <div class="chapter-header">
+        <div class="chapter-number">01</div>
+        <h2 class="chapter-title">发展历程：国漫如何走到今天？</h2>
+      </div>
+
+      <div class="chapter-preview">
+        <strong>本章看点：</strong>国漫不是“突然爆发”，而是经历了从美术片探索、电视化量产、市场化竞争，到互联网资本驱动的一系列阶段。
+      </div>
+
+      <p class="paragraph">
+        产业叙事可以很宏大，但对个体来说，“时代切换”往往发生在细节里：
+        从电影院转向电视、从线下发行为主转向互联网平台、从全年龄艺术片到细分受众题材……
+        每一次媒介环境的变化，都在重新定义动画的生产方式与商业模式。
+      </p>
+
+      <div class="chart-container">
+        <div class="chart-title">中国动漫产业发展历程（阶段划分）</div>
+        <div class="chart-subtitle">从“传统美术片”到“IP产业链”的迁移路径（依据 PDF 要点整理）</div>
+
+        <svg viewBox="0 0 700 210" class="chart-svg" role="img" aria-label="国漫发展历程时间轴">
+          <!-- 轴线 -->
+          <line x1="50" y1="100" x2="650" y2="100" stroke="#cbd5e1" stroke-width="3" />
+
+          <!-- 节点 -->
+          <circle cx="90" cy="100" r="8" fill="#1e40af"/>
+          <circle cx="220" cy="100" r="8" fill="#1e40af"/>
+          <circle cx="350" cy="100" r="8" fill="#1e40af"/>
+          <circle cx="480" cy="100" r="8" fill="#1e40af"/>
+          <circle cx="610" cy="100" r="10" fill="#b91c1c"/>
+
+          <!-- 标签 -->
+          <text x="90" y="72" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="700">1926–1966</text>
+          <text x="90" y="130" text-anchor="middle" font-size="11" fill="#64748b">传统探索</text>
+
+          <text x="220" y="72" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="700">1976–1990</text>
+          <text x="220" y="130" text-anchor="middle" font-size="11" fill="#64748b">产量提升</text>
+
+          <text x="350" y="72" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="700">1990–2002</text>
+          <text x="350" y="130" text-anchor="middle" font-size="11" fill="#64748b">市场化/电视化</text>
+
+          <text x="480" y="72" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="700">2002–2013</text>
+          <text x="480" y="130" text-anchor="middle" font-size="11" fill="#64748b">外来冲击</text>
+
+          <text x="610" y="72" text-anchor="middle" font-size="12" fill="#b91c1c" font-weight="900">2013–至今</text>
+          <text x="610" y="130" text-anchor="middle" font-size="11" fill="#b91c1c" font-weight="800">资本/平台驱动</text>
+        </svg>
+
+        <p class="chart-note">
+          早期作品数量不多但质量较高；随后进入电视化量产阶段；2002–2013 年间外来动画大量进入，国产传统动画受到冲击；
+          2013 年后平台与资本加速布局产业链，部分“成人向”题材动画电影取得突破。
+        </p>
+        <p class="chart-source">整理来源：你提供的 PDF 文本要点</p>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-label">核心洞察 #01</div>
+        <div class="paragraph" style="margin:0;">
+          国漫的关键变化不是“画得更精致”，而是从单一内容生产，开始转向
+          <strong>围绕 IP 的产业链经营</strong>：衍生品、授权、线下体验、平台分发，共同决定商业天花板。
+        </div>
+      </div>
+    </section>
+
+    <!-- 第二章：产业规模 -->
+    <section class="chapter-section" id="chapter02">
+      <div class="chapter-header">
+        <div class="chapter-number">02</div>
+        <h2 class="chapter-title">产业规模：增长点正在从内容转向“谷子”</h2>
+      </div>
+
+      <div class="chapter-preview">
+        <strong>本章看点：</strong>中国动漫产业正处在快速成长期，衍生品（“谷子经济”）成为新的增长引擎。
+      </div>
+
+      <p class="paragraph">
+        如果把动漫产业看作一棵树，内容是树干，衍生品与体验场景则是枝叶与果实。成熟市场往往不是靠“多拍几部电影”做大规模，
+        而是通过<strong>IP 的持续运营</strong>把价值扩散到更多消费场景中。
+      </p>
+
+      <div class="chart-container">
+        <div class="chart-title">2023 年「谷子经济」：1401 亿元</div>
+        <div class="chart-subtitle">衍生品正在从“边角料”变成产业主战场（报告口径）</div>
+
+        <svg viewBox="0 0 700 220" class="chart-svg" role="img" aria-label="谷子经济规模展示">
+          <rect x="60" y="30" width="580" height="140" rx="16" fill="#eff6ff" stroke="#bfdbfe"/>
+          <text x="350" y="98" text-anchor="middle" font-size="42" font-weight="900" fill="#1e40af">1401</text>
+          <text x="350" y="128" text-anchor="middle" font-size="14" fill="#64748b">亿元（2023 年中国谷子经济市场规模）</text>
+
+          <line x1="90" y1="170" x2="610" y2="170" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6"/>
+
+          <text x="90" y="198" font-size="12" fill="#64748b">内容</text>
+          <text x="150" y="198" font-size="12" fill="#64748b">→</text>
+          <text x="175" y="198" font-size="12" fill="#64748b">授权</text>
+          <text x="235" y="198" font-size="12" fill="#64748b">→</text>
+          <text x="260" y="198" font-size="12" fill="#64748b">衍生品</text>
+          <text x="335" y="198" font-size="12" fill="#64748b">→</text>
+          <text x="360" y="198" font-size="12" fill="#64748b">线下体验</text>
+          <text x="450" y="198" font-size="12" fill="#64748b">→</text>
+          <text x="475" y="198" font-size="12" fill="#64748b">持续运营</text>
+        </svg>
+
+        <p class="chart-note">
+          报告指出，中国动漫市场规模不断扩大，庞大的内需市场与衍生品经济共同推动增长；
+          但产业链成熟度与国际影响力仍有提升空间。
+        </p>
+        <p class="chart-source">整理来源：你提供的 PDF 文本要点</p>
+      </div>
+
+      <details class="case-details">
+        <summary class="case-summary">点击展开：为什么“谷子经济”会成为增长点？</summary>
+        <p class="paragraph" style="margin-top:12px;">
+          因为它把“看完电影/动画”的一次性消费，延长为“日常陪伴型消费”：
+          手办、卡牌、服饰、联名周边、展会与快闪……都在扩大 IP 与用户的接触频次，从而延长热度与生命周期。
+        </p>
+      </details>
+
+      <div class="insight-box">
+        <div class="insight-label">核心洞察 #02</div>
+        <div class="paragraph" style="margin:0;">
+          国产动漫的产业问题不只在“有没有爆款”，更在“爆款之后能不能接住”：
+          <strong>供应链、授权体系、渠道与运营能力</strong>，决定谷子经济能否从规模增长走向利润增长。
+        </div>
+      </div>
+    </section>
+
+    <!-- 第三章：票房 vs 衍生品 -->
+    <section class="chapter-section" id="chapter03">
+      <div class="chapter-header">
+        <div class="chapter-number">03</div>
+        <h2 class="chapter-title">票房不是终点：衍生品才是“放大器”</h2>
+      </div>
+
+      <div class="chapter-preview">
+        <strong>本章看点：</strong>在成熟市场中，衍生品规模可能显著高于电影票房；票房只是产业收入的一部分。
+      </div>
+
+      <p class="paragraph">
+        你提供的 PDF 里有一个极具冲击力的对比：2016 年全球 IP 衍生品市场规模为 <strong>2629 亿美元</strong>，
+        其中娱乐/角色形象市场为 <strong>1183 亿美元</strong>；而全球电影票房约为 <strong>386 亿美元</strong>。
+        换句话说，仅“娱乐/角色形象”这一块的衍生品规模，就约为电影票房的 <strong>3.06 倍</strong>。
+      </p>
+
+      <div class="chart-container">
+        <div class="chart-title">电影票房 vs 角色衍生品：规模差在哪里？</div>
+        <div class="chart-subtitle">2016 年口径对比（报告数据：386 亿 vs 1183 亿 vs 2629 亿美元）</div>
+
+        <!-- 以 2629 为最大刻度绘制 -->
+        <svg viewBox="0 0 700 320" class="chart-svg" role="img" aria-label="票房与衍生品规模对比柱状图">
+          <!-- 坐标轴 -->
+          <line x1="80" y1="260" x2="640" y2="260" stroke="#cbd5e1" stroke-width="2"/>
+          <line x1="80" y1="60" x2="80" y2="260" stroke="#cbd5e1" stroke-width="2"/>
+
+          <!-- 刻度（简化） -->
+          <text x="70" y="260" text-anchor="end" font-size="12" fill="#64748b">0</text>
+          <text x="70" y="160" text-anchor="end" font-size="12" fill="#64748b">≈1300</text>
+          <text x="70" y="60" text-anchor="end" font-size="12" fill="#64748b">≈2600</text>
+
+          <!-- 柱：386 (高度≈26) -->
+          <rect x="150" y="234" width="120" height="26" rx="6" fill="#94a3b8"/>
+          <text x="210" y="226" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="700">386</text>
+          <text x="210" y="284" text-anchor="middle" font-size="12" fill="#64748b">全球电影票房</text>
+
+          <!-- 柱：1183 (高度≈81) -->
+          <rect x="330" y="179" width="120" height="81" rx="6" fill="#3b82f6"/>
+          <text x="390" y="171" text-anchor="middle" font-size="12" fill="#0f172a" font-weight="700">1183</text>
+          <text x="390" y="284" text-anchor="middle" font-size="12" fill="#64748b">娱乐/角色形象衍生品</text>
+
+          <!-- 柱：2629 (高度=180) -->
+          <rect x="510" y="80" width="120" height="180" rx="6" fill="#b91c1c"/>
+          <text x="570" y="72" text-anchor="middle" font-size="12" fill="#b91c1c" font-weight="900">2629</text>
+          <text x="570" y="284" text-anchor="middle" font-size="12" fill="#64748b">全球 IP 衍生品总规模</text>
+
+          <!-- 3.06 倍标注 -->
+          <line x1="390" y1="150" x2="210" y2="210" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5"/>
+          <text x="290" y="145" text-anchor="middle" font-size="12" fill="#f59e0b" font-weight="900">≈ 3.06 倍</text>
+        </svg>
+
+        <p class="chart-note">
+          这意味着：如果把动漫电影当作“引爆点”，真正决定 IP 商业化上限的，是后续的衍生品、授权与体验场景。
+        </p>
+        <p class="chart-source">整理来源：你提供的 PDF 文本要点（2016 年口径）</p>
+      </div>
+
+      <div class="pull-quote">
+        动漫电影票房只是动漫产业收入的一部分，关键在于如何通过打造与运营 IP，实现产业变现。
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-title">衍生收入占比：国漫与成熟 IP 的差距</div>
+        <div class="chart-subtitle">报告中提到：国产动画 IP 的衍生收入约为票房的 12%，而迪士尼顶级 IP 可达 58%</div>
+
+        <svg viewBox="0 0 700 280" class="chart-svg" role="img" aria-label="衍生收入占比对比图">
+          <!-- baseline -->
+          <line x1="90" y1="220" x2="640" y2="220" stroke="#cbd5e1" stroke-width="2"/>
+          <text x="90" y="245" font-size="12" fill="#64748b">0%</text>
+          <text x="640" y="245" text-anchor="end" font-size="12" fill="#64748b">100%</text>
+
+          <!-- bars -->
+          <!-- 12% -->
+          <rect x="90" y="80" width="66" height="140" rx="10" fill="#ef4444" opacity="0.9"/>
+          <text x="123" y="70" text-anchor="middle" font-size="16" font-weight="900" fill="#ef4444">12%</text>
+          <text x="123" y="240" text-anchor="middle" font-size="12" fill="#64748b">国漫 IP（报告示例）</text>
+
+          <!-- 58% -->
+          <rect x="310" y="20" width="319" height="200" rx="10" fill="#1e40af" opacity="0.9"/>
+          <text x="470" y="16" text-anchor="middle" font-size="16" font-weight="900" fill="#1e40af">58%</text>
+          <text x="470" y="240" text-anchor="middle" font-size="12" fill="#64748b">迪士尼顶级 IP（报告口径）</text>
+
+          <!-- gap -->
+          <line x1="156" y1="55" x2="310" y2="55" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6"/>
+          <text x="233" y="48" text-anchor="middle" font-size="12" fill="#f59e0b" font-weight="900">差距近 50 个百分点</text>
+        </svg>
+
+        <p class="chart-note">
+          比起“再做一个爆款”，更难的是把爆款变成<strong>可复制、可持续的工业化文化资产</strong>。
+        </p>
+        <p class="chart-source">整理来源：你提供的 PDF 文本要点</p>
+      </div>
+    </section>
+
+    <!-- 第四章：中日美对比 -->
+    <section class="chapter-section" id="chapter04">
+      <div class="chapter-header">
+        <div class="chapter-number">04</div>
+        <h2 class="chapter-title">中日美对比：三种产业链生态，三条变现路径</h2>
+      </div>
+
+      <div class="chapter-preview">
+        <strong>本章看点：</strong>中国、日本、美国的动漫产业链核心逻辑不同：全链路贯通、角色经济、票房驱动——对应不同的抗风险能力与生命周期。
+      </div>
+
+      <p class="paragraph">
+        报告里给出了一个非常典型的对照：美国更像“内容 + 体验 + 消费 + 流媒体”的全链路系统；
+        日本以“角色经济”为核心，把衍生品做到极致；而中国仍偏“票房驱动”，衍生品与协同能力相对滞后，但增长潜力大。
+      </p>
+
+      <table class="compare-table" aria-label="中日美动漫产业链生态对比表">
+        <thead>
+          <tr>
+            <th style="width:18%;">国家/地区</th>
+            <th style="width:32%;">产业链特征</th>
+            <th style="width:25%;">优势</th>
+            <th style="width:25%;">短板/风险</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>美国</strong><span class="badge">全链路</span></td>
+            <td>内容 + 体验 + 消费 + 流媒体贯通，IP 价值最大化</td>
+            <td>协同强、变现渠道多、抗风险能力强</td>
+            <td>重资产运营，对内容与工业体系要求高</td>
+          </tr>
+          <tr>
+            <td><strong>日本</strong><span class="badge">角色经济</span></td>
+            <td>以角色为核心，衍生品开发极致化，粉丝黏性强</td>
+            <td>单个 IP 生命周期长，现金流稳定</td>
+            <td>对粉丝文化与内容持续供给要求高</td>
+          </tr>
+          <tr>
+            <td><strong>中国</strong><span class="badge">票房驱动</span></td>
+            <td>以电影/项目为核心，衍生品开发与协同不足</td>
+            <td>内需市场巨大，增长速度快</td>
+            <td>生命周期偏短，授权体系与供应链仍在补课</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="chart-container">
+        <div class="chart-title">迪士尼：衍生品与主题公园如何成为“现金牛”？</div>
+        <div class="chart-subtitle">报告中提到：主题公园和商品业务收入占比超过 40%，并形成闭环生态</div>
+
+        <svg viewBox="0 0 700 260" class="chart-svg" role="img" aria-label="迪士尼消费品与授权收入对比（示意）">
+          <!-- bar chart for 92.04 and 37.84 -->
+          <line x1="90" y1="210" x2="650" y2="210" stroke="#cbd5e1" stroke-width="2"/>
+          <line x1="90" y1="40" x2="90" y2="210" stroke="#cbd5e1" stroke-width="2"/>
+
+          <!-- scale label -->
+          <text x="80" y="210" text-anchor="end" font-size="12" fill="#64748b">0</text>
+          <text x="80" y="50" text-anchor="end" font-size="12" fill="#64748b">≈100</text>
+
+          <!-- 92.04 bar -->
+          <rect x="180" y="54" width="170" height="156" rx="10" fill="#1e40af"/>
+          <text x="265" y="44" text-anchor="middle" font-size="14" font-weight="900" fill="#1e40af">92.04</text>
+          <text x="265" y="232" text-anchor="middle" font-size="12" fill="#64748b">消费品收入（亿美元）</text>
+
+          <!-- 37.84 bar -->
+          <rect x="420" y="146" width="170" height="64" rx="10" fill="#b91c1c"/>
+          <text x="505" y="136" text-anchor="middle" font-size="14" font-weight="900" fill="#b91c1c">37.84</text>
+          <text x="505" y="232" text-anchor="middle" font-size="12" fill="#64748b">IP 授权收入（亿美元）</text>
+
+          <text x="350" y="20" text-anchor="middle" font-size="12" fill="#64748b">
+            注：报告同时提到同比增长：消费品 +3.2%，授权 +21%（口径为 2024 财年）
+          </text>
+        </svg>
+
+        <p class="chart-note">
+          这类“内容—商品—乐园—授权”的闭环，使 IP 不只是一部电影，而是一套能长期复利的商业系统。
+        </p>
+        <p class="chart-source">整理来源：你提供的 PDF 文本要点（迪士尼消费品与授权收入数据）</p>
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-label">核心洞察 #03</div>
+        <div class="paragraph" style="margin:0;">
+          中国动漫产业的关键课题不是“能不能做出爆款”，而是：能不能把爆款变成
+          <strong>可工业化复制的资产</strong>——让 IP 在内容之外也能持续产出现金流。
+        </div>
+      </div>
+    </section>
+
+    <!-- 第五章：主题乐园 -->
+    <section class="chapter-section" id="chapter05">
+      <div class="chapter-header">
+        <div class="chapter-number">05</div>
+        <h2 class="chapter-title">主题乐园：国漫IP的“终极形态”，也是最高难度</h2>
+      </div>
+
+      <div class="chapter-preview">
+        <strong>本章看点：</strong>主题乐园对 IP 的要求极高：代际生命力、强商品转化、长生命周期、成熟的运营与供应体系。
+      </div>
+
+      <p class="paragraph">
+        主题乐园之所以重要，是因为它把“看见”升级为“进入”——把 IP 从屏幕搬到现实。
+        但主题乐园也最残酷：它要求 IP 不仅好看，还要<strong>好逛、好买、好复访</strong>。
+      </p>
+
+      <div class="case-box">
+        <div class="case-title">落地体验：三种典型样本（来自 PDF 案例线索）</div>
+        <p class="paragraph" style="margin:0;">
+          <strong>美国：</strong>迪士尼乐园与商品业务形成协同闭环，主题公园、度假服务、游轮、授权、零售共同贡献收入。<br>
+          <strong>日本：</strong>吉卜力主题公园（2022 年开园）通过场景复刻与沉浸体验延长 IP 热度；樱桃小丸子乐园（1999 年开业）体现了长生命周期运营。<br>
+          <strong>中国：</strong>已出现以国产动画 IP 为核心的亲子文旅项目（如“熊出没”主题亲子度假区等），但整体更偏“文旅化项目”，尚未形成以成熟 IP 集群支撑的超级主题乐园体系。
+        </p>
+      </div>
+
+      <details class="case-details">
+        <summary class="case-summary">点击展开：为什么“国漫主题乐园”难做？（报告观点改写）</summary>
+        <p class="paragraph" style="margin-top:12px;">
+          困难不一定在“缺少好作品”，而在于国漫 IP 往往还没有完成从“作品”到“工业化文化资产”的转型：
+          代际生命力不足、商品转化能力偏弱、生命周期偏短、产业链协同不足。
+          而主题乐园恰恰是对工业化能力要求最高的终极形态。
+        </p>
+      </details>
+
+      <div class="pull-quote">
+        主题乐园不是“多开几家店”，而是一整套内容、商品、体验、运营与供应链的系统工程。
+      </div>
+    </section>
+
+    <!-- 第六章：出海能力 -->
+    <section class="chapter-section" id="chapter06">
+      <div class="chapter-header">
+        <div class="chapter-number">06</div>
+        <h2 class="chapter-title">出海能力：票房之外，全球影响力还差在哪？</h2>
+      </div>
+
+      <div class="chapter-preview">
+        <strong>本章看点：</strong>报告提到国产动画在海外票房贡献相对偏小，核心挑战是文化吸引力、发行能力与国际话语体系。
+      </div>
+
+      <p class="paragraph">
+        报告中的例子指出：以《哪吒》为代表的国产动画在中国内地票房远高于海外地区，
+        北美票房贡献相对较小（PDF 文本中提到“仅 2580 万”的表述，单位以原口径为准）。
+        相比之下，部分日本动画在多地区表现更强，显示出全球发行与文化输出能力的差异。
+      </p>
+
+      <div class="insight-box">
+        <div class="insight-label">核心洞察 #04</div>
+        <div class="paragraph" style="margin:0;">
+          出海不是“把片子卖出去”这么简单，而是：<strong>发行网络 + 本地化表达 + 长期运营</strong>的组合。
+          当 IP 的衍生品与体验场景能在海外落地时，影响力才算真正形成。
+        </div>
+      </div>
+    </section>
+
+    <!-- 结语：策略 -->
+    <section class="final-section" id="conclusion">
+      <div class="chapter-header">
+        <div class="chapter-number">07</div>
+        <h2 class="final-title">破局策略：把“爆款作品”变成“工业化资产”</h2>
+      </div>
+
+      <p class="final-paragraph">
+        如果用一句话概括本文：<strong>国漫的下一站不在票房，而在票房之后。</strong>
+        当作品端越来越强，真正的分水岭是能否建立起授权、衍生品、体验场景与海外发行的系统能力。
+      </p>
+
+      <h3 style="color:var(--primary-blue); margin: 22px 0 10px;">四条可落地的运营路径（建议稿）</h3>
+
+      <div class="strategy-box">
+        <div class="strategy-title"><span>1</span>从“项目思维”转向“角色思维”</div>
+        <p class="paragraph" style="margin:0;">
+          以角色为中心设计长期叙事与视觉资产，保证不同作品/内容形态之间的一致性，为授权与衍生品打基础。
+        </p>
+      </div>
+
+      <div class="strategy-box">
+        <div class="strategy-title"><span>2</span>建立可复制的授权与品控体系</div>
+        <p class="paragraph" style="margin:0;">
+          衍生品的核心不是“多做”，而是“做对”：授权分级、合作方筛选、质量与设计标准、库存与渠道策略，决定品牌信任与复购。
+        </p>
+      </div>
+
+      <div class="strategy-box">
+        <div class="strategy-title"><span>3</span>把线下体验做成“复访场景”</div>
+        <p class="paragraph" style="margin:0;">
+          从快闪、展览、联名店，逐步走向长期场景（主题街区/乐园/沉浸空间），用体验拉长生命周期，而不是一次性收割热度。
+        </p>
+      </div>
+
+      <div class="strategy-box">
+        <div class="strategy-title"><span>4</span>用出海倒逼工业化升级</div>
+        <p class="paragraph" style="margin:0;">
+          发行与本地化能力不是“后置任务”，应从立项阶段就同步考虑：文化符号的可理解性、节奏与叙事结构、渠道合作与宣发资源。
+        </p>
+      </div>
+
+      <div class="pull-quote" style="margin-top:26px;">
+        票房能证明“有人喜欢”，但产业链才能证明“能长期赚钱”。国漫真正的增量，来自把喜欢变成复利。
+      </div>
+
+      <div class="footer">
+        <p>© 数据整理版 · 可自由二次编辑（建议上线前核对各数据口径）</p>
+        <p style="font-size:12px;margin-top:8px;">
+          数据/观点线索来源：你提供的 PDF 文本要点（含前瞻产业研究院、行业报告、公开信息等口径汇总）
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // 平滑滚动
+    document.querySelectorAll('.nav-toc a').forEach(link => {
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // details 展开时轻微变色（增强阅读反馈）
+    document.querySelectorAll('details.case-details').forEach(d => {
+      d.addEventListener('toggle', function(){
+        if(this.open){
+          this.style.background = '#f0f7ff';
+        } else {
+          this.style.background = 'var(--bg-gray)';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
